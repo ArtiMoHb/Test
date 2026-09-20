@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Clicks: <span id="ClickCounter">0</span></p>
+<br>
+<button onclick="Click()">Click!</button>
+<br>
+<p>+<span id="PerClickCounter">1</span> Per click</p>
+<br>
+<h2>shop</h2>
+<p>+1 For click 5$ <button onclick="Buy()">Buy</button>  <input type="number" style="width:3%" id="BuyCount" name="BuyCount" min="1" value="1"></input></p>
+<script>
+var Clicks = 0;
+var PerClickCounter = document.getElementById("PerClickCounter");
+var PerClick = 1;
+function Click() {
+Clicks += PerClick;
+document.getElementById("ClickCounter").innerHTML = Clicks;
+}
+function Buy() {
+var Count = Math.floor(Number(document.getElementById("BuyCount").value));
+if (Clicks >= 5*Count) {
+Clicks -= 5*Count;
+PerClick += Count;
+PerClickCounter.innerHTML = PerClick;
+document.getElementById("ClickCounter").innerHTML = Clicks;
+}
+}
+</script>
+</body>
+<html>
